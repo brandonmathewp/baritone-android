@@ -75,7 +75,10 @@ allprojects {
                 artifact()
             }
         }
-        mavenLocal()
+        maven {
+            name = 'nether-pathfinder-android'
+            url = 'https://brandonmathewp.github.io/nether-pathfinder-android'
+        }
         mavenCentral()
         maven {
             name = 'babbaj-repo'
