@@ -27,12 +27,12 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Build Fabric JAR
-        run: ./gradlew :fabric:build --no-daemon
+        run: ./gradlew :fabric:shadowJar :fabric:remapJar --no-daemon
 
       - name: Find JAR
         id: jar
         run: |
-          JAR=$(ls fabric/build/libs/baritone-fabric-*.jar | grep -v dev | grep -v sources | head -1)
+          JAR=$(ls fabric/build/libs/baritone-fabric-*.jar | grep -v -- '-dev\|sources\|unoptimized' | head -1)
           echo "path=$JAR" >> $GITHUB_OUTPUT
           echo "name=$(basename $JAR)" >> $GITHUB_OUTPUT
 
