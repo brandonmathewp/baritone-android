@@ -75,6 +75,7 @@ allprojects {
                 artifact()
             }
         }
+        mavenLocal()
         mavenCentral()
         maven {
             name = 'babbaj-repo'
